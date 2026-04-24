@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ai-trip-planner</title>
+<link rel="stylesheet" href="person2/css/base.css"/>
+<link rel="stylesheet" href="person2/css/landing.css"/>
+<link rel="stylesheet" href="person2/css/wizard.css"/>
+<link rel="stylesheet" href="person1/css/results.css"/>
+<link rel="stylesheet" href="person2/css/responsive.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+
+<div id="pg-land">
+  <div class="hero">
+    <div class="hero-badge">AI-Powered Travel Intelligence</div>
+    <div class="hero-title">AI-TRIP-PLANNER</div>
+    <div class="hero-sub">Plan smarter. Travel further.</div>
+    <p class="hero-desc">
+      Tell us where you want to go. We'll build your complete trip - hotels, local events, a day-by-day itinerary, and insider tips - in seconds.
+    </p>
+    <button class="btn-start" data-action="show-wizard">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Start Planning
+    </button>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-num">200+</div><div class="hstat-lbl">Destinations</div></div>
+      <div class="hstat"><div class="hstat-num">AI</div><div class="hstat-lbl">Powered</div></div>
+      <div class="hstat"><div class="hstat-num">Free</div><div class="hstat-lbl">To Use</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="pg-wizard" class="hidden">
+  <div class="wizard-wrap">
+    <div class="step-track">
+      <div class="step-item">
+        <div class="step-circle active" id="sc1">1</div>
+        <div class="step-lbl active" id="sl1">Destination</div>
+      </div>
+      <div class="step-line" id="line1"></div>
+      <div class="step-item">
+        <div class="step-circle" id="sc2">2</div>
+        <div class="step-lbl" id="sl2">Preferences</div>
+      </div>
+      <div class="step-line" id="line2"></div>
+      <div class="step-item">
+        <div class="step-circle" id="sc3">3</div>
+        <div class="step-lbl" id="sl3">Confirm</div>
+      </div>
+    </div>
+
+    <div class="wstep active" id="step1">
+      <div class="wstep-title">Where are you headed?</div>
+      <div class="wstep-sub">Enter your destination and travel dates to get started.</div>
+
+      <div class="fg2" style="margin-bottom:18px">
+        <div class="fgrp">
+          <label class="flbl">Flying From</label>
+          <input class="finput" id="f-from" type="text" placeholder="Your city e.g. New York, London..."/>
+        </div>
+        <div class="fgrp">
+          <label class="flbl">Destination</label>
+          <input class="finput" id="f-dest" type="text" placeholder="Paris, Tokyo, Bali, Dubai..."/>
+        </div>
+      </div>
+
+      <div class="fg2">
+        <div class="fgrp">
+          <label class="flbl">Start Date</label>
+          <input class="finput" type="date" id="f-start"/>
+        </div>
+        <div class="fgrp">
+          <label class="flbl">End Date</label>
+          <input class="finput" type="date" id="f-end"/>
+        </div>
+      </div>
+      <div id="date-prev" class="date-prev"></div>
+
+      <div id="err1" class="err-msg hidden"></div>
+      <div class="wbtns">
+        <button class="btn-prev" data-action="show-land">Back</button>
+        <button class="btn-next" data-action="next-step" data-step="2">Continue</button>
+      </div>
+    </div>
+
+    <div class="wstep" id="step2">
+      <div class="wstep-title">Customize your trip</div>
+      <div class="wstep-sub">Tell us about your group and what you love to do.</div>
+
+      <div class="fgrp">
+        <label class="flbl">Number of Travelers</label>
+        <select class="fselect" id="f-travelers">
+          <option value="1">1 - Solo traveler</option>
+          <option value="2" selected>2 - Couple</option>
+          <option value="3">3 people</option>
+          <option value="4">4 - Small group</option>
+          <option value="6">6 people</option>
+          <option value="8">8 - Large group</option>
+          <option value="10">10+ people</option>
+        </select>
+      </div>
+
+      <div class="fgrp">
+        <label class="flbl">Budget Level</label>
+        <div class="budget-grid" id="budget-grid">
+          <div class="bcard" data-val="budget" data-action="set-budget">
+            <div class="bcard-icon">$</div>
+            <div class="bcard-lbl">Budget</div>
+          </div>
+          <div class="bcard on" data-val="moderate" data-action="set-budget">
+            <div class="bcard-icon">*</div>
+            <div class="bcard-lbl">Moderate</div>
+          </div>
+          <div class="bcard" data-val="luxury" data-action="set-budget">
+            <div class="bcard-icon">+</div>
+            <div class="bcard-lbl">Luxury</div>
+          </div>
+          <div class="bcard" data-val="ultra-luxury" data-action="set-budget">
+            <div class="bcard-icon">#</div>
+            <div class="bcard-lbl">Ultra</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fgrp">
+        <label class="flbl">Special Requests <span style="opacity:.5;font-size:9px;letter-spacing:0;text-transform:none">(optional)</span></label>
+        <textarea class="ftextarea" id="f-notes" rows="2" placeholder="Dietary needs, accessibility, must-see places..."></textarea>
+      </div>
+
+      <div class="wbtns">
+        <button class="btn-prev" data-action="go-step" data-step="1">Back</button>
+        <button class="btn-next" data-action="next-step" data-step="3">Review Trip</button>
+      </div>
+    </div>
+
+    <div class="wstep" id="step3">
+      <div class="wstep-title">Ready to launch?</div>
+      <div class="wstep-sub">Here's your trip summary before we build it.</div>
+      <div id="summary-box" style="background:rgba(232,169,74,0.04);border:1px solid var(--border);border-radius:4px;padding:24px;margin-bottom:20px;line-height:2;font-size:13px;color:var(--text-mid)"></div>
+      <div id="err3" class="err-msg hidden"></div>
+      <div class="wbtns">
+        <button class="btn-prev" data-action="go-step" data-step="2">Edit</button>
+        <button class="btn-next" data-action="generate-trip" id="btn-gen">Generate My Trip</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="pg-loading" class="hidden">
+  <div class="loading-wrap">
+    <div class="loader-ring"><div class="loader-dot"></div></div>
+    <div class="loader-msg" id="load-msg">Validating destination...</div>
+    <div class="loader-steps" id="loader-dots"></div>
+  </div>
+</div>
+
+<div id="pg-results" class="hidden">
+  <div class="rnav">
+    <div class="rnav-brand">AI-TRIP-PLANNER</div>
+    <div class="rnav-tabs">
+      <button class="rtab active" data-action="switch-tab" data-tab="itinerary">Itinerary</button>
+      <button class="rtab" data-action="switch-tab" data-tab="events">Events</button>
+      <button class="rtab" data-action="switch-tab" data-tab="hotels">Hotels</button>
+      <button class="rtab" data-action="switch-tab" data-tab="flights">Flights</button>
+      <button class="rtab" data-action="switch-tab" data-tab="tips">Tips</button>
+    </div>
+    <button class="rnav-new" data-action="show-land">New Trip</button>
+  </div>
+
+  <div id="trip-header"></div>
+
+  <div class="res-body">
+    <div id="tab-itinerary" class="tab-panel active"></div>
+    <div id="tab-events" class="tab-panel"></div>
+    <div id="tab-hotels" class="tab-panel"></div>
+    <div id="tab-flights" class="tab-panel"></div>
+    <div id="tab-tips" class="tab-panel"></div>
+  </div>
+</div>
+
+</div>
+<div id="export-canvas"></div>
+<script src="person2/js/app-core.js"></script>
+<script src="person2/js/trip-planner.js"></script>
+<script src="person1/js/results-ui.js"></script>
+<script src="person1/js/activity-picker.js"></script>
+<script src="person1/js/export.js"></script>
+</body>
+</html>
