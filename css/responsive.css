@@ -1,0 +1,121 @@
+@media (max-width: 1024px){
+  .hotels-list,
+  .events-grid,
+  .tips-grid,
+  .itin-layout{
+    grid-template-columns:1fr;
+  }
+
+  .pool-panel{
+    position:static;
+  }
+}
+
+@media (max-width: 768px){
+  .hero{
+    padding:56px 18px;
+  }
+
+  .wizard-wrap{
+    width:min(94vw,760px);
+    padding:28px 0 48px;
+  }
+
+  .wstep{
+    padding:22px;
+    border-radius:24px;
+  }
+
+  .fg2,
+  .flight-row,
+  .budget-grid{
+    grid-template-columns:1fr;
+  }
+
+  .step-track{
+    gap:8px;
+  }
+
+  .step-lbl{
+    font-size:10px;
+    text-align:center;
+  }
+
+  .wbtns{
+    flex-direction:column-reverse;
+  }
+
+  .btn-prev,
+  .btn-next,
+  .load-more-btn,
+  .flt-search-btn,
+  .export-icon-btn{
+    width:100%;
+  }
+
+  .rnav{
+    position:static;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .rnav-tabs{
+    justify-content:flex-start;
+  }
+
+  .trip-header,
+  .hbody,
+  .evbody,
+  .tipcard,
+  .flight-card{
+    padding:18px;
+  }
+
+  .hmosaic{
+    grid-template-columns:1fr;
+    grid-template-rows:200px 120px 120px;
+  }
+
+  .hm-main{
+    grid-row:auto;
+  }
+
+  .day-slot-head{
+    flex-direction:column;
+  }
+}
+
+@media (max-width: 540px){
+  #trip-header,
+  .res-body{
+    width:min(94vw,1180px);
+  }
+
+  .hero-badge,
+  .tpill,
+  .rtab,
+  .rnav-new,
+  .amen,
+  .hlink,
+  .ev-action-btn,
+  .flt-partner,
+  .cat-btn,
+  .day-tab{
+    width:100%;
+  }
+
+  .hero-stats,
+  .tpills,
+  .hlinks,
+  .ev-actions,
+  .flt-partners,
+  .rnav-tabs{
+    flex-direction:column;
+  }
+
+  .hotels-list,
+  .events-grid,
+  .tips-grid{
+    gap:16px;
+  }
+}

@@ -1,0 +1,119 @@
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:72px 20px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 18px;
+  border:1px solid var(--accent-border);
+  border-radius:999px;
+  background:rgba(8,17,26,0.62);
+  color:var(--accent-strong);
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  animation:glow 3s ease-in-out infinite;
+}
+
+.hero-badge::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--accent);
+  animation:pulse 1.5s ease-in-out infinite;
+}
+
+.hero-title{
+  margin-top:24px;
+  font-family:var(--font-display);
+  font-size:clamp(56px,11vw,132px);
+  line-height:.9;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,#fff6e5 0%,var(--accent) 42%,#fff7ea 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-sub{
+  margin-top:10px;
+  color:var(--text-muted);
+  font-size:clamp(13px,2vw,18px);
+  text-transform:uppercase;
+  letter-spacing:.32em;
+}
+
+.hero-desc{
+  max-width:640px;
+  margin-top:24px;
+  color:var(--text-soft);
+  font-size:clamp(16px,2vw,20px);
+}
+
+.btn-start{
+  margin-top:34px;
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent) 0%,#f3c36d 100%);
+  color:#1b1408;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 18px 38px rgba(232,169,74,0.22);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+
+.btn-start:hover{
+  transform:translateY(-2px);
+  box-shadow:0 22px 46px rgba(232,169,74,0.28);
+}
+
+.btn-start svg{
+  width:18px;
+  height:18px;
+}
+
+.hero-stats{
+  margin-top:44px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+
+.hstat{
+  min-width:138px;
+  padding:18px 20px;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:rgba(11,20,31,0.54);
+  backdrop-filter:blur(12px);
+}
+
+.hstat-num{
+  color:var(--accent);
+  font-size:30px;
+  font-weight:800;
+  line-height:1;
+}
+
+.hstat-lbl{
+  margin-top:8px;
+  color:var(--text-muted);
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
