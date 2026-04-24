@@ -66,6 +66,9 @@ ai-trip-planner/
 `-- .env.example
 ```
 
+- `person1/` contains the results-layer files: results page styling, activity planning, and export behavior.
+- `person2/` contains the core app files: shared styles, wizard flow, app state, helpers, and trip generation logic.
+
 ## Deployment
 
 Netlify Drop: drag the folder to [netlify.com/drop](https://app.netlify.com/drop)
