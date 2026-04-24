@@ -45,29 +45,22 @@ A fully client-side AI trip planner built with vanilla HTML, CSS, and JavaScript
 ```text
 ai-trip-planner/
 |-- index.html
-|-- person1/
-|   |-- css/
-|   |   `-- results.css
-|   `-- js/
-|       |-- results-ui.js
-|       |-- activity-picker.js
-|       `-- export.js
-|-- person2/
-|   |-- css/
-|   |   |-- base.css
-|   |   |-- landing.css
-|   |   |-- wizard.css
-|   |   `-- responsive.css
-|   `-- js/
-|       |-- app-core.js
-|       `-- trip-planner.js
+|-- css/
+|   |-- base.css
+|   |-- landing.css
+|   |-- wizard.css
+|   |-- results.css
+|   `-- responsive.css
+|-- js/
+|   |-- app-core.js
+|   |-- trip-planner.js
+|   |-- results-ui.js
+|   |-- activity-picker.js
+|   `-- export.js
 |-- README.md
 |-- .gitignore
 `-- .env.example
 ```
-
-- `person1/` contains the results-layer files: results page styling, activity planning, and export behavior.
-- `person2/` contains the core app files: shared styles, wizard flow, app state, helpers, and trip generation logic.
 
 ## Deployment
 
